@@ -1,0 +1,2 @@
+module LendDetailsHelper
+end

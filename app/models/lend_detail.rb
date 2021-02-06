@@ -1,0 +1,2 @@
+class LendDetail < ApplicationRecord
+end

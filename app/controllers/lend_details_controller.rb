@@ -1,0 +1,2 @@
+class LendDetailsController < ApplicationController
+end
