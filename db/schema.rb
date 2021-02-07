@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_07_201711) do
+ActiveRecord::Schema.define(version: 2021_02_07_202314) do
 
   create_table "admins", force: :cascade do |t|
     t.string "encrypted_password", default: "", null: false
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2021_02_07_201711) do
     t.integer "shelf_id", null: false
     t.string "title", null: false
     t.date "date_publication", null: false
-    t.boolean "is_active", null: false
+    t.boolean "is_active", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
