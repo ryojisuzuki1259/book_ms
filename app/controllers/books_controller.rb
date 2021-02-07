@@ -1,8 +1,8 @@
 class BooksController < ApplicationController
-    before_action :set_book, only: [ :show, :edit, :destroy ]
+    before_action :set_book, only: [ :show, :edit, :update, :destroy ]
     
     def index
-        @books = Book.all
+        @books = Book.includes(:genre, :shelf).all
     end
     
     def show
@@ -22,8 +22,7 @@ class BooksController < ApplicationController
     end
     
     def update
-        @book = Book.new(book_params)
-        @book.update
+        @book.update(book_params)
         redirect_to book_path(@book)
     end
     

@@ -1,4 +1,14 @@
 <h1>書籍一覧画面</h1>
+
+<div>
+    <% @books.each do |b|%>
+      <p>書籍タイトル：　<%= b.title %></p>
+      <p>ジャンル名：　　<%= b.genre.name %></p>
+      <p>発行年月日：　　<%= b.date_publication %></p>
+      <p>本棚：　　　　　<%= b.shelf.name %></p>
+    <% end %>
+</div>
+
 <%= link_to "書籍新規登録", new_book_path %>
 <%= link_to "ジャンル一覧", genres_path%>
 <%= link_to "本棚一覧", shelves_path%>
