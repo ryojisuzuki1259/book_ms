@@ -6,6 +6,7 @@
       <p>ジャンル名：　　<%= b.genre.name %></p>
       <p>発行年月日：　　<%= b.date_publication %></p>
       <p>本棚：　　　　　<%= b.shelf.name %></p>
+      <%= link_to "詳細", book_path(b) %>
     <% end %>
 </div>
 
