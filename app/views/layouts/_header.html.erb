@@ -1,0 +1,6 @@
+<div><%= link_to "トップへ", root_path %></div>
+<div>
+    <% if admin_signed_in? %>
+        <%= link_to "ログアウト", destroy_admin_session_path, method: :delete %>
+    <% end %>
+</div>

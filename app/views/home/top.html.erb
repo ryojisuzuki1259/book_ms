@@ -1,4 +1,10 @@
 <h1>トップ画面</h1>
 
-<%= link_to "管理者ログインページ", new_admin_session_path %>
-<%= link_to "管理者登録", new_admin_registration_path %>
+<%if admin_signed_in?%>
+    <%= link_to "書籍一覧", books_path %>
+    <%= link_to "貸出履歴一覧", lends_path %>
+    <%= link_to "利用者一覧", end_users_path %>
+<% else %>
+    <%= link_to "管理者ログインページ", new_admin_session_path %>
+    <%= link_to "管理者登録", new_admin_registration_path %>
+<% end %>
