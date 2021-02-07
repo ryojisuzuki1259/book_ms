@@ -1,2 +1,2 @@
-$("#genre-index").html("<%= j(render 'genres/partial_index', genres: Genre.all ) %>");
+$("#genre-index").html("<%= j(render 'genres/partial_index', genres: @genres = Genre.all ) %>");
 $(":input").val('')
