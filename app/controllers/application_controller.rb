@@ -6,9 +6,10 @@ class ApplicationController < ActionController::Base
     end
     
     protected
-    def configure_permitted_parameters #登録時に送信するカラムを追加
-       devise_parameter_sanitizer.permit(:sign_up, keys: [
-         :name, :organization, :prefecture, :introduction,
-       ])
+    def configure_permitted_parameters 
+        added_attrs = [ :last_name, :first_name, :last_name_kana, :first_name_kana, :address, :telephone_number, :birthday ]
+        devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+        devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+        devise_parameter_sanitizer.permit :sign_in, keys: added_attrs
     end
 end
