@@ -1,0 +1,9 @@
+<h1>書籍詳細画面</h1>
+
+<div><%= @book.title %></div>
+<div><%= @book.genre.name %></div>
+<div><%= @book.date_publication %></div>
+<div><%= @book.shelf.name %></div>
+<div><%= @book.is_active %></div>
+
+<%= link_to "管理者トップへ戻る", root_path %>

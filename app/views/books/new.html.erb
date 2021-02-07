@@ -1,0 +1,18 @@
+<h1>書籍新規登録画面</h1>
+
+<div>
+<%= form_with model:@book, local:true do |f| %>
+    <%= f.label :"書籍タイトル" %>
+    <%= f.text_field :title %>
+    <%= f.label :"ジャンル" %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+    <%= f.label :"発行年月日" %>
+    <%= f.date_field :date_publication %>
+    <%= f.label :"本棚" %>
+    <%= f.collection_select :shelf_id, Shelf.all, :id, :name %>
+    
+    <div><%= f.submit "登録する"%></div>
+<% end %>
+</div>
+
+<%= link_to "管理者トップへ戻る", root_path %>

@@ -1,0 +1,10 @@
+<% genres.each do |genre| %>
+  <%= genre.name %>
+  <%= form_with model:genre, url:genre_path(genre), local:true do |f| %>
+    <%= f.radio_button :is_active, :true %>
+    <%= f.label :is_active, "有効" %>
+    <%= f.radio_button :is_active, :false %>
+    <%= f.label :is_active, "無効" %>
+    <%= f.submit "更新する"%>
+  <% end %>
+<% end %>
