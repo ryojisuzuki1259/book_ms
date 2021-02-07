@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "end_users/select" => "end_users#select"
   resources :books
   resources :genres, only: [:index, :create, :update]
-  resources :shelves, only: [:index, :create]
+  resources :shelves, only: [:index, :create, :update]
   resources :cart_items, only: [:index, :create, :destroy]
   delete "cart_items/destroy_all" => "cart_items#destroy_all"
   resources :lends, only: [:index, :show, :create] do

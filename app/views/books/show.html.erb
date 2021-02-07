@@ -4,6 +4,14 @@
 <div><%= @book.genre.name %></div>
 <div><%= @book.date_publication %></div>
 <div><%= @book.shelf.name %></div>
-<div><%= @book.is_active %></div>
+<div>
+    <% if @book.is_active == true %>
+        <p>保管</p>
+    <% else %>
+        <p>廃棄済</p>
+    <% end %>
+</div>
 
+<%= link_to "編集", edit_book_path %>
+<%= link_to "書籍一覧へ戻る", books_path %>
 <%= link_to "管理者トップへ戻る", root_path %>

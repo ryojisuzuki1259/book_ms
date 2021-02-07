@@ -1,0 +1,13 @@
+<h1>利用者一覧画面</h1>
+
+<div>
+    <% @end_users.each do |e| %>
+        <%= link_to end_user_path(e) do %>
+            利用者ID：<%= e.id %>
+            <%= e.last_name %>　<%= e.first_name %>　(<%= e.last_name_kana %>　<%= e.first_name_kana %>)
+        <% end %>
+    <% end %>
+</div>
+
+<%= link_to "利用者登録", new_end_user_path %>
+<%= link_to "管理者トップへ戻る", root_path %>
