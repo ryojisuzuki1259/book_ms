@@ -1,0 +1,17 @@
+<h1>確認画面</h1>
+
+<%= form_with model:@lend, url:lends_path, local:true do |f| %>
+    <%= f.text_field :end_user_id %>
+    <%= @end_user.last_name %><%= @end_user.first_name %>
+    <%= f.hidden_field :admin_id, :value => current_admin.id %>
+    <%= f.date_field :due_date, :value => Date.today %>
+    <%= f.hidden_field :amount, :value => 1 %>
+    
+    <% @cart_items.each do |c|%>
+      <%= c.book.title %>
+    <% end %>
+    
+    <%= f.submit "貸出処理を実行"%>
+<% end %>
+
+<%= link_to "戻る", :back %>

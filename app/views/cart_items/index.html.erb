@@ -1,0 +1,13 @@
+<h1>カート項目一覧画面</h1>
+
+<%= link_to "カートに書籍を追加する", books_path %>
+
+<div>
+    <% @cart_items.each do |c|%>
+        <%= c.book.title %>
+    <% end %>
+</div>
+
+<div><%= link_to "利用者選択へいく", new_lend_path %></div>
+
+<div><%= link_to "貸出履歴一覧へ戻る", lends_path %></div>

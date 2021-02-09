@@ -1,11 +1,13 @@
 class BooksController < ApplicationController
     before_action :set_book, only: [ :show, :edit, :update, :destroy ]
+    before_action :authenticate_admin!
     
     def index
         @books = Book.includes(:genre, :shelf).all
     end
     
     def show
+        @cart_item = CartItem.new
     end
     
     def new
