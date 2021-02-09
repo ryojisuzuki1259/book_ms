@@ -1,0 +1,12 @@
+<h1>new lend</h1>
+
+<% require "date" %>
+<% d = Date.today %>
+
+<%= form_with model:@lend, url:confirm_lends_path(@lend), method: :post, local:true do |f| %>
+    <%= f.text_field :end_user_id %>
+    <%= f.hidden_field :admin_id, :value => current_admin.id %>
+    <%= f.hidden_field :due_date, :value => d + 7 %>  <!--日付の加算ができない-->
+    <%= f.hidden_field :amount, :value => 1 %>
+    <%= f.submit "貸出利用者として選択"%>
+<% end %>

@@ -10,10 +10,12 @@ Rails.application.routes.draw do
   resources :shelves, only: [:index, :create, :update]
   resources :cart_items, only: [:index, :create, :destroy]
   delete "cart_items/destroy_all" => "cart_items#destroy_all"
-  resources :lends, only: [:index, :show, :create] do
+  resources :lends, only: [:index, :show, :new, :create] do
     patch "lend_details/:id" => "lend_details#update"
+    collection do
+      post :confirm
+    end
   end
-  post "lends/confirm" => "lends#confirm"
   resources :lend_details
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

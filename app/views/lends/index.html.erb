@@ -1,0 +1,12 @@
+<h1>貸出履歴一覧画面</h1>
+
+<table>
+    <% @lends.each do |l| %>
+        <%= link_to l.id, lend_path(l) %>
+        <%= l.end_user.last_name %>
+    <% end %>
+</table>
+
+<div><%= link_to "貸出処理", cart_items_path %></div>
+
+<div><%= link_to "管理者トップへ戻る", root_path %></div>

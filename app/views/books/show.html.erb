@@ -12,6 +12,12 @@
     <% end %>
 </div>
 
+<%= form_with model:[ @book, @cart_item ], url:cart_items_path( @book, @cart_item ), local:true do |f| %>
+    <%= f.hidden_field :book_id, :value => @book.id %>
+    <%= f.hidden_field :admin_id, :value => current_admin.id %>
+    <%= f.submit "カートに追加する" %>
+<% end %>
+
 <%= link_to "編集", edit_book_path %>
 <%= link_to "書籍一覧へ戻る", books_path %>
 <%= link_to "管理者トップへ戻る", root_path %>

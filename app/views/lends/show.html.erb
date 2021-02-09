@@ -1,0 +1,23 @@
+<h1>貸出詳細画面</h1>
+
+<%= @lend.end_user_id %>
+<%= @lend.end_user.last_name %><%= @lend.end_user.first_name %>
+<%= @lend.admin_id %>
+<% a = Admin.find(@lend.admin_id) %>
+<%= a.last_name %><%= a.first_name %>
+<%= @lend.due_date %>
+<%= @lend.amount %>
+
+<h4>貸出書籍内容</h4>
+<% @lend_details.each do |l| %>
+    <%= l.book.title %>
+    <%= form_with model:l, url:lend_detail_path(l), local:true do |f| %>
+        <%= f.radio_button :lend_status, 1 %>
+        <%= f.label :lend_status, "貸出中" %>
+        <%= f.radio_button :lend_status, 2 %>
+        <%= f.label :lend_status, "返却済" %>
+        <%= f.submit "更新する"%>
+    <% end %>
+<% end %>
+
+<div><%= link_to "貸出履歴一覧に戻る", lends_path %></div>
