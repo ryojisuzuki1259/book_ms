@@ -14,4 +14,8 @@ class Lend < ApplicationRecord
         end
         cart_items.destroy_all
     end
+    
+    def self.search_for(content, model)
+        Lend.where('end_user_id LIKE ?', '%'+content+'%')
+    end
 end
