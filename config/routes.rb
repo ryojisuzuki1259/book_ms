@@ -17,6 +17,9 @@ Rails.application.routes.draw do
     end
   end
   resources :lend_details
+  get '/search', to: 'search#search'
+  get "home/search" => "home#search"
+  get "home/search_book" => "home#search_book"
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

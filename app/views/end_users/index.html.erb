@@ -1,5 +1,12 @@
 <h1>利用者一覧画面</h1>
 
+<h4>検索フォーム</h4>
+<%= form_with url:search_path, method: :get, local:true do |f| %>
+    <%= f.text_field :content %>
+    <%= f.hidden_field :model, :value => "end_user" %>
+    <%= f.submit "検索" %>
+<% end %>
+
 <div>
     <% @end_users.each do |e| %>
         <%= link_to end_user_path(e) do %>
@@ -9,5 +16,6 @@
     <% end %>
 </div>
 
-<%= link_to "利用者登録", new_end_user_path %>
-<%= link_to "管理者トップへ戻る", root_path %>
+<div><%= link_to "利用者登録", new_end_user_path %></div>
+
+<div><%= link_to "管理者トップへ戻る", root_path %></div>
